@@ -1,0 +1,137 @@
+%YAML:1.0
+
+#--------------------------------------------------------------------------------------------
+# Camera Parameters. Adjust them!
+#--------------------------------------------------------------------------------------------
+
+# Camera calibration and distortion parameters (OpenCV) 
+Camera.w: 240
+Camera.h: 240
+Camera.fx: 302.
+Camera.fy: 304.
+Camera.cx: 111.
+Camera.cy: 111.
+Camera.k1: -0.14298
+Camera.k2: 0.060657
+Camera.p1: -0.00385419
+Camera.p2: -0.005294
+Camera.FishEye: 0
+Camera.newfx: 310.
+Camera.newfy: 310.
+Camera.newcx: 110.
+Camera.newcy: 110.
+
+
+# Camera frames per second 
+Camera.fps: 30.0
+
+# Color order of the images (0: BGR, 1: RGB. It is ignored if images are grayscale)
+Camera.RGB: 1
+Camera.DistortImage: 0
+
+#t_imu = t_cam + shift
+CameraIMU.TimeShift: 0.03
+
+# [
+# 0, -1, 0
+# 1, 0, 0
+# 0, 0, 1
+# ]
+CameraIMU.bTci: 0
+CameraIMU.T: !!opencv-matrix
+    rows: 3
+    cols: 4
+    dt: f
+    data: [0, -1., -0., 0.0, 1., -0., -0., -0., 0., -0., 1., 0.]
+
+#CameraIMU.Tci: !!opencv-matrix
+#    rows: 3
+#    cols: 4
+#    dt: f
+#    data: [0, 1, 0, 0.04392, -1., 0, 0, 0.00312, 0, 0, 1, -0.01464]
+
+# config setting for parameters
+Init.Alpha0: 10.
+
+Config.FrameRows: 240
+Config.FrameCols: 240
+Config.OriginFrameRows: 240
+Config.OriginFrameCols: 240
+Config.DownSample: 1
+Config.MaxIteration: 0
+Config.UseHuber: 0
+
+# Config.ImageWeight: 50
+# Config.ImageWeightKF: 20
+# Config.Scale: 0.5
+
+# Config.ImageWeight: 30
+# Config.ImageWeightKF: 10
+# Config.Scale: 0.5
+
+# Config.ImageWeight: 50
+# Config.ImageWeightKF: 20
+# Config.Scale: 0.4
+
+Config.ImageWeight: 100
+Config.ImageWeightKF: 40
+Config.Scale: 0.3
+
+Config.UseLK: 0
+
+Config.SigmaAx: 1e-4
+Config.SigmaAy: 1e-4
+Config.SigmaAz: 1e-4
+Config.SigmaWx: 1e-6
+Config.SigmaWy: 1e-6
+Config.SigmaWz: 1e-6
+Config.SigmaG: 1e-4
+Config.SigmaG0: 1e0
+
+Config.SigmaBa: 1e-8
+Config.SigmaBw: 1e-10
+Config.SigmaAlpha: 1e-4
+Config.SigmaN:  1e-6
+Config.SigmaVel: 1e-4
+Config.SigmaPos: 1e-4
+Config.SigmaAtt: 1e-6
+Config.SigmaYaw: 1e-8
+
+Config.SigmaA: 1e-4
+Config.SigmaB: 1e-4
+
+Config.SigmaVel0: 1e0
+Config.SigmaPos0: 1e-4
+Config.SigmaAtt0: 1e-4
+Config.SigmaAlpha0: 1e-1
+Config.SigmaN0: 1e0
+Config.SigmaBa0: 1e-4
+Config.SigmaBw0: 1e-6
+Config.SigmaA0: 1e-4
+Config.SigmaB0: 1e-4
+Config.RobustDelta: 1e-1
+Config.ShowLog: 0
+
+Config.DrawHomography: 0
+Config.KFCoverage: 0.2
+Config.InitNKF: 100
+Config.GaussianSigma: 3
+Config.UseKF: 2
+# Config.NFrames: 1000
+Config.NFrames: -1
+Config.KFIouTh: 0.3
+Config.SearchKF: 1
+Config.ChangeWeight: 0
+Config.ImageWeight2: 30
+Config.ImageWeightKF2: 1.
+Config.MarginalizeAB: 1
+Config.OptimizeKFMaxIter: 30
+Config.UseMedianBlur: 1
+Config.KFMatchTh: 10
+Config.OptCFKFScale: .3
+Config.MarginalizeABC: 1
+Config.WeightOptCFP: 1e2
+Config.WeightOptCFAB: 1e3
+Config.WeightOptCFYaw: 5e3
+Config.OptCFPosTh: .2
+Config.AvgKFGradTh: 0.05
